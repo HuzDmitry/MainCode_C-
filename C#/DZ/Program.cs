@@ -27,12 +27,24 @@
 // Console.WriteLine("max= "+x);
 
 //задача 6
+// Console.WriteLine("Введите число для анализа: ");
+// int x=Convert.ToInt32(Console.ReadLine());
+// if (x%2==0)
+// {
+//     Console.WriteLine(x+" четное");
+// }else
+// {
+//     Console.WriteLine(x+" не четное");
+// }
+// задача 8
 Console.WriteLine("Введите число для анализа: ");
 int x=Convert.ToInt32(Console.ReadLine());
-if (x%2==0)
+int temp=1;
+while (temp<=x)
 {
-    Console.WriteLine(x+" четное");
-}else
-{
-    Console.WriteLine(x+" не четное");
+    if (temp%2==0)
+    {
+        Console.Write(temp+", ");
+    }
+    temp++;
 }
