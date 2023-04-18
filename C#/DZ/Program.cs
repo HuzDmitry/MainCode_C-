@@ -114,53 +114,55 @@
 // 12821 -> да
 // 23432 -> да
 
-Console.Write("Введите пятизначное число: ");
- string num=Console.ReadLine();
+// Console.Write("Введите пятизначное число: ");
+//  string num=Console.ReadLine();
 
-char [] temp=num.ToCharArray();
+// char [] temp=num.ToCharArray();
 
-bool Polindrom(char [] num){
-    bool pol=false;
-    for(int i=0,t=num.Length-1; i<num.Length/2; i++,t--)
-    {
-        pol=num[i]==num[t];
-    }
-    return pol;
-}
-if (Polindrom(temp))
-{
-    Console.Write("это число палиндром");
-}
-else
-{
-    Console.Write("это число не являеться палиндромом");
-}
+// bool Polindrom(char [] num){
+//     bool pol=false;
+//     for(int i=0,t=num.Length-1; i<num.Length/2; i++,t--)
+//     {
+//         pol=num[i]==num[t];
+//     }
+//     return pol;
+// }
+// if (Polindrom(temp))
+// {
+//     Console.Write("это число палиндром");
+// }
+// else
+// {
+//     Console.Write("это число не являеться палиндромом");
+// }
 //----------------------------------------------------------------
 // Задача 21
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние
 // между ними в 3D пространстве.
 // A (3,6,8); B (2,1,-7), -> 15.84
 // A (7,-5, 0); B (1,-1,9) -> 11.53
-// double[] Koordinate()
-// {
-//     double[] temp=new double[3];
-//     Console.Write(" X: ");
-//     temp[0] = Convert.ToDouble(Console.ReadLine());
-//     Console.Write(" Y: ");
-//     temp[1] = Convert.ToDouble(Console.ReadLine());
-//     Console.Write(" Z: ");
-//     temp[2] = Convert.ToDouble(Console.ReadLine());
-//     return temp;
-// }
-// Console.WriteLine("Введите координаты точки А: ");
-// double [] num1 = Koordinate();
-// Console.WriteLine("Введите координаты точки В: ");
-// double [] num2 = Koordinate();
-// double result=Math.Sqrt(Math.Pow(num2[0]-num1[0],2)+
-//                         Math.Pow(num2[1]-num1[1],2)+
-//                         Math.Pow(num2[2]-num1[2],2));
+
+double[] Koordinate()
+{
+    double[] temp=new double[3];
+    Console.Write(" X: ");
+    temp[0] = Convert.ToDouble(Console.ReadLine());
+    Console.Write(" Y: ");
+    temp[1] = Convert.ToDouble(Console.ReadLine());
+    Console.Write(" Z: ");
+    temp[2] = Convert.ToDouble(Console.ReadLine());
+    return temp;
+}
+Console.WriteLine("Введите координаты точки А: ");
+double [] num1 = Koordinate();
+Console.WriteLine("Введите координаты точки В: ");
+double [] num2 = Koordinate();
+double result=Math.Sqrt(Math.Pow(num2[0]-num1[0],2)+
+                        Math.Pow(num2[1]-num1[1],2)+
+                        Math.Pow(num2[2]-num1[2],2));
                         
-// Console.WriteLine("Расстояние между точкой А и В: "+ Math.Round(result, 2));
+Console.WriteLine("Расстояние между точкой А и В: "+ Math.Round(result, 2));
+
 //------------------------------------------------------------------------
 // Задача 23
 // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
