@@ -114,28 +114,28 @@
 // 12821 -> да
 // 23432 -> да
 
-// Console.Write("Введите пятизначное число: ");
-//  string num=Console.ReadLine();
+Console.Write("Введите пятизначное число: ");
+ string num=Console.ReadLine();
 
-// char [] temp=num.ToCharArray();
+char [] temp=num.ToCharArray();
 
-// bool Polindrom(char [] num){
-//     bool pol=false;
-//     for(int i=0,t=num.Length-1; i<num.Length/2; i++,t--)
-//     {
-//         pol=num[i]==num[t];
-//     }
-//     return pol;
-// }
-// if (Polindrom(temp))
-// {
-//     Console.Write("это число палиндром");
-// }
-// else
-// {
-//     Console.Write("это число не являеться палиндромом");
-// }
-
+bool Polindrom(char [] num){
+    bool pol=false;
+    for(int i=0,t=num.Length-1; i<num.Length/2; i++,t--)
+    {
+        pol=num[i]==num[t];
+    }
+    return pol;
+}
+if (Polindrom(temp))
+{
+    Console.Write("это число палиндром");
+}
+else
+{
+    Console.Write("это число не являеться палиндромом");
+}
+//----------------------------------------------------------------
 // Задача 21
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние
 // между ними в 3D пространстве.
@@ -161,15 +161,15 @@
 //                         Math.Pow(num2[2]-num1[2],2));
                         
 // Console.WriteLine("Расстояние между точкой А и В: "+ Math.Round(result, 2));
-
+//------------------------------------------------------------------------
 // Задача 23
 // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 
-Console.WriteLine("Введите число: ");
-int num=Convert.ToInt32(Console.ReadLine());
-for(int i=0; i<num; i++)
-{
-   Console.Write(", "+Math.Pow(i+1, 3)); 
-}
+// Console.WriteLine("Введите число: ");
+// int num=Convert.ToInt32(Console.ReadLine());
+// for(int i=0; i<num; i++)
+// {
+//    Console.Write(", "+Math.Pow(i+1, 3)); 
+// }
