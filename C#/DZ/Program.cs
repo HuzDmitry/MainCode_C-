@@ -142,26 +142,26 @@
 // A (3,6,8); B (2,1,-7), -> 15.84
 // A (7,-5, 0); B (1,-1,9) -> 11.53
 
-double[] Koordinate()
-{
-    double[] temp=new double[3];
-    Console.Write(" X: ");
-    temp[0] = Convert.ToDouble(Console.ReadLine());
-    Console.Write(" Y: ");
-    temp[1] = Convert.ToDouble(Console.ReadLine());
-    Console.Write(" Z: ");
-    temp[2] = Convert.ToDouble(Console.ReadLine());
-    return temp;
-}
-Console.WriteLine("Введите координаты точки А: ");
-double [] num1 = Koordinate();
-Console.WriteLine("Введите координаты точки В: ");
-double [] num2 = Koordinate();
-double result=Math.Sqrt(Math.Pow(num2[0]-num1[0],2)+
-                        Math.Pow(num2[1]-num1[1],2)+
-                        Math.Pow(num2[2]-num1[2],2));
+// double[] Koordinate()
+// {
+//     double[] temp=new double[3];
+//     Console.Write(" X: ");
+//     temp[0] = Convert.ToDouble(Console.ReadLine());
+//     Console.Write(" Y: ");
+//     temp[1] = Convert.ToDouble(Console.ReadLine());
+//     Console.Write(" Z: ");
+//     temp[2] = Convert.ToDouble(Console.ReadLine());
+//     return temp;
+// }
+// Console.WriteLine("Введите координаты точки А: ");
+// double [] num1 = Koordinate();
+// Console.WriteLine("Введите координаты точки В: ");
+// double [] num2 = Koordinate();
+// double result=Math.Sqrt(Math.Pow(num2[0]-num1[0],2)+
+//                         Math.Pow(num2[1]-num1[1],2)+
+//                         Math.Pow(num2[2]-num1[2],2));
                         
-Console.WriteLine("Расстояние между точкой А и В: "+ Math.Round(result, 2));
+// Console.WriteLine("Расстояние между точкой А и В: "+ Math.Round(result, 2));
 
 //------------------------------------------------------------------------
 // Задача 23
@@ -169,9 +169,9 @@ Console.WriteLine("Расстояние между точкой А и В: "+ Mat
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 
-// Console.WriteLine("Введите число: ");
-// int num=Convert.ToInt32(Console.ReadLine());
-// for(int i=0; i<num; i++)
-// {
-//    Console.Write(", "+Math.Pow(i+1, 3)); 
-// }
+Console.WriteLine("Введите число: ");
+int num=Convert.ToInt32(Console.ReadLine());
+for(int i=0; i<num; i++)
+{
+   Console.Write(", "+Math.Pow(i+1, 3)); 
+}
