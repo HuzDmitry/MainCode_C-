@@ -184,20 +184,43 @@
 // 3, 5 -> 243 (3⁵)
 // 2, 4 -> 16
 
+// Console.WriteLine("Введите число: ");
+// int num1=Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите степень числа: ");
+// int num2=Convert.ToInt32(Console.ReadLine());
+// Console.Write($"число {num1} в степени {num2} = ");
+// Console.WriteLine(Exponentiate(num1, num2));
+
+// int Exponentiate(int num1, int num2)
+// {
+//     int temp=num1;
+//     for (int i = 1; i < num2; i++)
+//     {
+//         temp=temp*num1;
+//     }
+//     return temp;
+// }
+// ---------------------------------------
+
+// Задача 27: Напишите программу, которая принимает на
+//  вход число и выдаёт сумму цифр в числе.
+// 452 -> 11
+// 82 -> 10
+// 9012 -> 12
+
 Console.WriteLine("Введите число: ");
 int num1=Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите степень числа: ");
-int num2=Convert.ToInt32(Console.ReadLine());
-Console.Write($"число {num1} в степени {num2} = ");
-Console.WriteLine(Exponentiate(num1, num2));
-
-int Exponentiate(int num1, int num2)
+Console.WriteLine("Сумма чисел в веденном числе = "+Summa(num1));
+int Summa(int sum)
 {
-    int temp=num1;
-    for (int i = 1; i < num2; i++)
+    int temp=sum;
+    int count=0;
+    int result=0; 
+    while (temp>0)
     {
-        temp=temp*num1;
-    }
-    return temp;
+        count=temp%10;// получаю остаток
+        temp=temp/10;// получаю осталоное число без остатка
+        result=result+count; // суммирую каждый остаток
+    }  
+    return result;      
 }
-
