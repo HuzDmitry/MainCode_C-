@@ -208,19 +208,44 @@
 // 82 -> 10
 // 9012 -> 12
 
-Console.WriteLine("Введите число: ");
-int num1=Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Сумма чисел в веденном числе = "+Summa(num1));
-int Summa(int sum)
+// Console.WriteLine("Введите число: ");
+// int num1=Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Сумма чисел в веденном числе = "+Summa(num1));
+// int Summa(int sum)
+// {
+//     int temp=sum;
+//     int count=0;
+//     int result=0; 
+//     while (temp>0)
+//     {
+//         count=temp%10;// получаю остаток
+//         temp=temp/10;// получаю осталоное число без остатка
+//         result=result+count; // суммирую каждый остаток
+//     }  
+//     return result;      
+// }
+// --------------------------------------------------
+// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и
+// выводит их на экран.
+
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+// 6, 1, 33 -> [6, 1, 33]
+
+int[] OutArray()
 {
-    int temp=sum;
-    int count=0;
-    int result=0; 
-    while (temp>0)
+    int[] inArray=new int[8];
+    int num;
+    for (int i = 0; i < 8; i++)
     {
-        count=temp%10;// получаю остаток
-        temp=temp/10;// получаю осталоное число без остатка
-        result=result+count; // суммирую каждый остаток
-    }  
-    return result;      
+        Console.Write($"Введите {i+1}-e число: ");
+        num=Convert.ToInt32(Console.ReadLine());
+        inArray[i]=num;
+    }
+    return inArray;
 }
+void PrintIntArray(int[] array)
+{
+    Console.Write("["+string.Join(",",array)+"]");
+}
+int[] array=OutArray();
+PrintIntArray(array);
