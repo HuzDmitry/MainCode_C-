@@ -169,9 +169,35 @@
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 
+// Console.WriteLine("Введите число: ");
+// int num=Convert.ToInt32(Console.ReadLine());
+// for(int i=0; i<num; i++)
+// {
+//    Console.Write(", "+Math.Pow(i+1, 3)); 
+// }
+//---------------------------------------------------------------------------------------
+
+// Урок 4. Функции
+
+// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и 
+//возводит число A в натуральную степень B.
+// 3, 5 -> 243 (3⁵)
+// 2, 4 -> 16
+
 Console.WriteLine("Введите число: ");
-int num=Convert.ToInt32(Console.ReadLine());
-for(int i=0; i<num; i++)
+int num1=Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите степень числа: ");
+int num2=Convert.ToInt32(Console.ReadLine());
+Console.Write($"число {num1} в степени {num2} = ");
+Console.WriteLine(Exponentiate(num1, num2));
+
+int Exponentiate(int num1, int num2)
 {
-   Console.Write(", "+Math.Pow(i+1, 3)); 
+    int temp=num1;
+    for (int i = 1; i < num2; i++)
+    {
+        temp=temp*num1;
+    }
+    return temp;
 }
+
