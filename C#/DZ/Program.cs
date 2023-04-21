@@ -231,21 +231,57 @@
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
 
-int[] OutArray()
+// int[] OutArray()
+// {
+//     int[] inArray=new int[8];
+//     int num;
+//     for (int i = 0; i < 8; i++)
+//     {
+//         Console.Write($"Введите {i+1}-e число: ");
+//         num=Convert.ToInt32(Console.ReadLine());
+//         inArray[i]=num;
+//     }
+//     return inArray;
+// }
+// void PrintIntArray(int[] array)
+// {
+//     Console.Write("["+string.Join(",",array)+"]");
+// }
+// int[] array=OutArray();
+// PrintIntArray(array);
+//-------------------------------------------------------------------------------------
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
+// Напишите программу, которая покажет количество чётных чисел в массиве.
+// [345, 897, 568, 234] -> 2
+
+Console.Write("Введите длинну массива: ");
+int len=Convert.ToInt32(Console.ReadLine());
+int[]array=new int[len];
+
+Fill(array);
+int result=Pariti(array);
+Console.WriteLine(String.Join(",",array));
+Console.WriteLine("количество четных чисел в массиве= "+result);
+
+void Fill(int[] t)
 {
-    int[] inArray=new int[8];
-    int num;
-    for (int i = 0; i < 8; i++)
+    Random ran =new Random();
+    for (int i = 0; i < t.Length; i++)
     {
-        Console.Write($"Введите {i+1}-e число: ");
-        num=Convert.ToInt32(Console.ReadLine());
-        inArray[i]=num;
+       t[i]=ran.Next(100,1000); 
     }
-    return inArray;
-}
-void PrintIntArray(int[] array)
+} 
+int Pariti(int[] t)
 {
-    Console.Write("["+string.Join(",",array)+"]");
+    int num=0;
+    int temp=0;
+    for (int i = 0; i < t.Length; i++)
+    {
+       temp=t[i]%10;
+       if (temp%2==0)
+       {
+            num++;        
+       }
+    }
+    return num;
 }
-int[] array=OutArray();
-PrintIntArray(array);
