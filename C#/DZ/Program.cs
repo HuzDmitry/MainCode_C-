@@ -254,34 +254,66 @@
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 // [345, 897, 568, 234] -> 2
 
+// Console.Write("Введите длинну массива: ");
+// int len=Convert.ToInt32(Console.ReadLine());
+// int[]array=new int[len];
+
+// Fill(array);
+// int result=Pariti(array);
+// Console.WriteLine(String.Join(",",array));
+// Console.WriteLine("количество четных чисел в массиве= "+result);
+
+// void Fill(int[] t)
+// {
+//     Random ran =new Random();
+//     for (int i = 0; i < t.Length; i++)
+//     {
+//        t[i]=ran.Next(100,1000); 
+//     }
+// } 
+// int Pariti(int[] t)
+// {
+//     int num=0;
+//     int temp=0;
+//     for (int i = 0; i < t.Length; i++)
+//     {
+//        temp=t[i]%10;
+//        if (temp%2==0)
+//        {
+//             num++;        
+//        }
+//     }
+//     return num;
+// }
+//--------------------------------------
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами.
+// Найдите сумму элементов, стоящих на нечётных позициях.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+
 Console.Write("Введите длинну массива: ");
 int len=Convert.ToInt32(Console.ReadLine());
 int[]array=new int[len];
-
 Fill(array);
-int result=Pariti(array);
+int result=SummNechet(array);
 Console.WriteLine(String.Join(",",array));
-Console.WriteLine("количество четных чисел в массиве= "+result);
+Console.WriteLine("сумма чисел в нечетных позициях в массиве = "+result);
 
 void Fill(int[] t)
 {
     Random ran =new Random();
     for (int i = 0; i < t.Length; i++)
     {
-       t[i]=ran.Next(100,1000); 
+       t[i]=ran.Next(10); 
     }
 } 
-int Pariti(int[] t)
+int SummNechet(int[]t)
 {
-    int num=0;
-    int temp=0;
-    for (int i = 0; i < t.Length; i++)
+    int summa=t[1];
+    for (int i = 3; i < t.Length; i=i+2)
     {
-       temp=t[i]%10;
-       if (temp%2==0)
-       {
-            num++;        
-       }
+        summa+=t[i];
     }
-    return num;
+    return summa;
 }
