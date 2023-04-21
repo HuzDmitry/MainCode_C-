@@ -292,28 +292,68 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
+// Console.Write("Введите длинну массива: ");
+// int len=Convert.ToInt32(Console.ReadLine());
+// int[]array=new int[len];
+// Fill(array);
+// int result=SummNechet(array);
+// Console.WriteLine(String.Join(",",array));
+// Console.WriteLine("сумма чисел в нечетных позициях в массиве = "+result);
+
+// void Fill(int[] t)
+// {
+//     Random ran =new Random();
+//     for (int i = 0; i < t.Length; i++)
+//     {
+//        t[i]=ran.Next(10); 
+//     }
+// } 
+// int SummNechet(int[]t)
+// {
+//     int summa=t[1];
+//     for (int i = 3; i < t.Length; i=i+2)
+//     {
+//         summa+=t[i];
+//     }
+//     return summa;
+// }
+//-----------------------------------------------
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и
+// минимальным элементов массива.
+// [3 7 22 2 78] -> 76
+
 Console.Write("Введите длинну массива: ");
 int len=Convert.ToInt32(Console.ReadLine());
 int[]array=new int[len];
 Fill(array);
-int result=SummNechet(array);
+int result=MinusMaxMin(array);
 Console.WriteLine(String.Join(",",array));
-Console.WriteLine("сумма чисел в нечетных позициях в массиве = "+result);
+Console.WriteLine("Разница между min и max в массиве = "+result);
 
-void Fill(int[] t)
+void Fill(int[] t) //метод заполнения массива числами
 {
     Random ran =new Random();
     for (int i = 0; i < t.Length; i++)
     {
-       t[i]=ran.Next(10); 
+       t[i]=ran.Next(1,100); 
     }
 } 
-int SummNechet(int[]t)
+
+int MinusMaxMin(int[]t) // определение разницы между min и max
 {
-    int summa=t[1];
-    for (int i = 3; i < t.Length; i=i+2)
+    int min=1000;
+    int max=0;
+    for (int i = 0; i < t.Length; i++)
     {
-        summa+=t[i];
+        if (t[i]<min)
+        {
+            min=t[i];
+        }else if (t[i]>max)
+        {
+            max=t[i];
+        }
     }
-    return summa;
+    max-=min;
+    return max;
 }
