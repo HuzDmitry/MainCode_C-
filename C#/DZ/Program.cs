@@ -446,8 +446,8 @@ int NumArray(int[]t)// вывод количесват положительны�
     return result;
 }
 
-// int result=NumArray(IntRandom());
-int result=NumArray(StringInInt(StringRandom()));
+int result=NumArray(IntRandom());
+//int result=NumArray(StringInInt(StringRandom()));
 Console.WriteLine("");
 Console.WriteLine($"Количество положительных чисел = {result}");
 
