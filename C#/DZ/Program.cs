@@ -250,6 +250,7 @@
 // int[] array=OutArray();
 // PrintIntArray(array);
 //-------------------------------------------------------------------------------------
+//DZ 5
 // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 // [345, 897, 568, 234] -> 2
@@ -323,37 +324,108 @@
 // минимальным элементов массива.
 // [3 7 22 2 78] -> 76
 
-Console.Write("Введите длинну массива: ");
-int len=Convert.ToInt32(Console.ReadLine());
-int[]array=new int[len];
-Fill(array);
-int result=MinusMaxMin(array);
-Console.WriteLine(String.Join(",",array));
-Console.WriteLine("Разница между min и max в массиве = "+result);
+// Console.Write("Введите длинну массива: ");
+// int len=Convert.ToInt32(Console.ReadLine());
+// int[]array=new int[len];
+// Fill(array);
+// int result=MinusMaxMin(array);
+// Console.WriteLine(String.Join(",",array));
+// Console.WriteLine("Разница между min и max в массиве = "+result);
 
-void Fill(int[] t) //метод заполнения массива числами
-{
-    Random ran =new Random();
-    for (int i = 0; i < t.Length; i++)
-    {
-       t[i]=ran.Next(1,100); 
-    }
-} 
+// void Fill(int[] t) //метод заполнения массива числами
+// {
+//     Random ran =new Random();
+//     for (int i = 0; i < t.Length; i++)
+//     {
+//        t[i]=ran.Next(1,100); 
+//     }
+// } 
 
-int MinusMaxMin(int[]t) // определение разницы между min и max
+// int MinusMaxMin(int[]t) // определение разницы между min и max
+// {
+//     int min=1000;
+//     int max=0;
+//     for (int i = 0; i < t.Length; i++)
+//     {Console.Write("Введите длинну массива: ");
+// int len=Convert.ToInt32(Console.ReadLine());
+// int[]array=new int[len];
+// Fill(array);
+// int result=MinusMaxMin(array);
+// Console.WriteLine(String.Join(",",array));
+// Console.WriteLine("Разница между min и max в массиве = "+result);
+
+// void Fill(int[] t) //метод заполнения массива числами
+// {
+//     Random ran =new Random();
+//     for (int i = 0; i < t.Length; i++)
+//     {
+//        t[i]=ran.Next(1,100); 
+//     }
+// } 
+
+// int MinusMaxMin(int[]t) // определение разницы между min и max
+// {
+//     int min=1000;
+//     int max=0;
+//     for (int i = 0; i < t.Length; i++)
+//     {
+//         if (t[i]<min)
+//         {
+//             min=t[i];
+//         }else if (t[i]>max)
+//         {
+//             max=t[i];
+//         }
+//     }
+//     max-=min;
+//     return max;
+// }
+//         if (t[i]<min)
+//         {
+//             min=t[i];
+//         }else if (t[i]>max)
+//         {
+//             max=t[i];
+//         }
+//     }
+//     max-=min;
+//     return max;
+// }
+//------------------------------------------------------------------------------------
+// DZ 6
+
+// Задача 41: Пользователь вводит с клавиатуры M чисел.
+// Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
+
+
+
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых,
+// заданных уравнениями y = k1 * x + b1, y = k2 * x + b2;
+// значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+//y=5x+2 y=9x+4 a2x+b2-a1x-b1=0 a2x-a1x+b2-b1=0 a2x-a1x=b1-b2 x=b1-b2/a2-a1
+
+float[] InNumCoordinat()
 {
-    int min=1000;
-    int max=0;
-    for (int i = 0; i < t.Length; i++)
+    Console.WriteLine("Введите координыты 2-х прямых");
+    float[]coordinata=new float[4]; // точки координат прямых:В1.В2.К1.К2
+    for (int i = 0; i < 2; i++)
     {
-        if (t[i]<min)
-        {
-            min=t[i];
-        }else if (t[i]>max)
-        {
-            max=t[i];
-        }
+        Console.Write($"точка B{i+1}= ");
+        coordinata[i]=Convert.ToInt32(Console.ReadLine());
+        Console.Write($"точка K{i+1}= ");
+        coordinata[i+2]=Convert.ToInt32(Console.ReadLine());
     }
-    max-=min;
-    return max;
+    return coordinata;
 }
+float[] Intersection(float[] t)
+{
+    float[]result=new float[2];// координата точки пересечения: Х.Y
+    result[0]=(t[0]-t[1]) / (t[3]-t[2]);
+    result[1]=t[3]*result[0]+t[1];
+    return result;
+}
+float[] res=Intersection(InNumCoordinat());
+Console.WriteLine(string.Join(",",res));
