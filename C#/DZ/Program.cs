@@ -399,6 +399,57 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
+int[] IntRandom()
+{
+    Console.WriteLine("Введите желаемое количесво случайных чисел:");
+    int len=Convert.ToInt32(Console.ReadLine());
+    int[] ran=new int[len];
+    for (int i = 0; i < len; i++)
+    {
+        ran[i]=new Random().Next(-99,100);
+    }
+    return ran;
+}
+
+string StringRandom()
+{
+    Console.WriteLine("Введите желаемое количесво чисел. В конце нажмите еще раз ввод:");
+    string inInt1=Console.ReadLine();
+    string inInt2="";
+     while (inInt1 !="")
+     {
+        inInt2=inInt2+" "+inInt1;
+        inInt1=Console.ReadLine();
+     }
+    return inInt2;
+}
+
+int[] StringInInt(string res)// преобразование строки в массив чисел
+{
+    string[] t=res.Split(" ");
+    int[] result=new int[t.Length-1];
+    for (int i = 0; i < t.Length-1; i++)
+    {
+        result[i]=Convert.ToInt32(t[i+1]);
+    }
+    return result;
+}
+
+int NumArray(int[]t)// вывод количесват положительных чисел
+{
+    int result=0;
+    for (int i = 0; i < t.Length; i++)
+    {
+        Console.Write($"{t[i]}, ");
+        if (t[i]>0) result++;
+    }
+    return result;
+}
+
+// int result=NumArray(IntRandom());
+int result=NumArray(StringInInt(StringRandom()));
+Console.WriteLine("");
+Console.WriteLine($"Количество положительных чисел = {result}");
 
 
 // Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых,
@@ -407,25 +458,25 @@
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 //y=5x+2 y=9x+4 a2x+b2-a1x-b1=0 a2x-a1x+b2-b1=0 a2x-a1x=b1-b2 x=b1-b2/a2-a1
 
-float[] InNumCoordinat()
-{
-    Console.WriteLine("Введите координыты 2-х прямых");
-    float[]coordinata=new float[4]; // точки координат прямых:В1.В2.К1.К2
-    for (int i = 0; i < 2; i++)
-    {
-        Console.Write($"точка B{i+1}= ");
-        coordinata[i]=Convert.ToInt32(Console.ReadLine());
-        Console.Write($"точка K{i+1}= ");
-        coordinata[i+2]=Convert.ToInt32(Console.ReadLine());
-    }
-    return coordinata;
-}
-float[] Intersection(float[] t)
-{
-    float[]result=new float[2];// координата точки пересечения: Х.Y
-    result[0]=(t[0]-t[1]) / (t[3]-t[2]);
-    result[1]=t[3]*result[0]+t[1];
-    return result;
-}
-float[] res=Intersection(InNumCoordinat());
-Console.WriteLine(string.Join(",",res));
+// float[] InNumCoordinat()
+// {
+//     Console.WriteLine("Введите координыты 2-х прямых");
+//     float[]coordinata=new float[4]; // точки координат прямых:В1.В2.К1.К2
+//     for (int i = 0; i < 2; i++)
+//     {
+//         Console.Write($"точка B{i+1}= ");
+//         coordinata[i]=Convert.ToInt32(Console.ReadLine());
+//         Console.Write($"точка K{i+1}= ");
+//         coordinata[i+2]=Convert.ToInt32(Console.ReadLine());
+//     }
+//     return coordinata;
+// }
+// float[] Intersection(float[] t)
+// {
+//     float[]result=new float[2];// координата точки пересечения: Х.Y
+//     result[0]=(t[0]-t[1]) / (t[3]-t[2]);
+//     result[1]=t[3]*result[0]+t[1];
+//     return result;
+// }
+// float[] res=Intersection(InNumCoordinat());
+// Console.WriteLine(string.Join(",",res));
