@@ -490,29 +490,30 @@
 // 0,5 7 -2 -0,2
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
-double [,] CreateArray()
-{
-    Console.WriteLine("Введите колличество строк в массиве:");
-    int rows = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите количество столбцов в массиве:");
-    int columns = Convert.ToInt32(Console.ReadLine());
-    double [,] array =new  double [rows,columns];
-    return array;
-}
-void GetRandomArray(double[,] array)
-{
 
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-      for (int j = 0; j < array.GetLength(1); j++)
-       {
-            array[i,j] = Convert.ToDouble(new Random().Next(-100,100)/10.0);
-          Console.Write(array[i,j]+  " ");
-        }
-        Console.WriteLine();
-    }
-}
-GetRandomArray(CreateArray());
+// double [,] CreateArray()
+// {
+//     Console.WriteLine("Введите колличество строк в массиве:");
+//     int rows = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Введите количество столбцов в массиве:");
+//     int columns = Convert.ToInt32(Console.ReadLine());
+//     double [,] array =new  double [rows,columns];
+//     return array;
+// }
+// void GetRandomArray(double[,] array)
+// {
+
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//       for (int j = 0; j < array.GetLength(1); j++)
+//        {
+//             array[i,j] = Convert.ToDouble(new Random().Next(-100,100)/10.0);
+//           Console.Write(array[i,j]+  " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// GetRandomArray(CreateArray());
 
 
 // Задача 50. Напишите программу, которая на вход принимает позиции элемента в
@@ -524,6 +525,47 @@ GetRandomArray(CreateArray());
 // 5 9 2 3
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
+
+int [,] CreateArray()
+{
+    Console.WriteLine("Введите колличество строк в массиве:");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите количество столбцов в массиве:");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    int [,] array =new  int [rows,columns];
+    return array;
+}
+int[,] GetRandomArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+      for (int j = 0; j < array.GetLength(1); j++)
+       {
+            array[i,j] =new Random().Next(100);
+          Console.Write(array[i,j]+  " ");
+        }
+        Console.WriteLine();
+    }
+    return array;
+}
+void SerchNumArray(int[,]array, int x, int y)
+{
+     if (x>array.GetLength(0)&&y>array.GetLength(1))
+            {
+               Console.WriteLine("Такой нет позиции в таблице."); 
+            }else
+            {
+                Console.WriteLine($"Значени в таблице по x={x}, y={y}: {array[x-1,y-1]}"); 
+            }
+    
+}
+int[,] result=GetRandomArray(CreateArray());
+
+Console.WriteLine("Введите строку x:");
+int x = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите столбец y:");
+int y = Convert.ToInt32(Console.ReadLine());
+SerchNumArray(result,x,y);
 
 // Задача 52. Задайте двумерный массив из целых чисел.
 // Найдите среднее арифметическое элементов в каждом столбце.
