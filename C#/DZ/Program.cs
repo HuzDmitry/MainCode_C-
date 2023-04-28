@@ -399,57 +399,57 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
-int[] IntRandom()
-{
-    Console.WriteLine("Введите желаемое количесво случайных чисел:");
-    int len=Convert.ToInt32(Console.ReadLine());
-    int[] ran=new int[len];
-    for (int i = 0; i < len; i++)
-    {
-        ran[i]=new Random().Next(-99,100);
-    }
-    return ran;
-}
+// int[] IntRandom()
+// {
+//     Console.WriteLine("Введите желаемое количесво случайных чисел:");
+//     int len=Convert.ToInt32(Console.ReadLine());
+//     int[] ran=new int[len];
+//     for (int i = 0; i < len; i++)
+//     {
+//         ran[i]=new Random().Next(-99,100);
+//     }
+//     return ran;
+// }
 
-string StringRandom()
-{
-    Console.WriteLine("Введите желаемое количесво чисел. В конце нажмите еще раз ввод:");
-    string inInt1=Console.ReadLine();
-    string inInt2="";
-     while (inInt1 !="")
-     {
-        inInt2=inInt2+" "+inInt1;
-        inInt1=Console.ReadLine();
-     }
-    return inInt2;
-}
+// string StringRandom()
+// {
+//     Console.WriteLine("Введите желаемое количесво чисел. В конце нажмите еще раз ввод:");
+//     string inInt1=Console.ReadLine();
+//     string inInt2="";
+//      while (inInt1 !="")
+//      {
+//         inInt2=inInt2+" "+inInt1;
+//         inInt1=Console.ReadLine();
+//      }
+//     return inInt2;
+// }
 
-int[] StringInInt(string res)// преобразование строки в массив чисел
-{
-    string[] t=res.Split(" ");
-    int[] result=new int[t.Length-1];
-    for (int i = 0; i < t.Length-1; i++)
-    {
-        result[i]=Convert.ToInt32(t[i+1]);
-    }
-    return result;
-}
+// int[] StringInInt(string res)// преобразование строки в массив чисел
+// {
+//     string[] t=res.Split(" ");
+//     int[] result=new int[t.Length-1];
+//     for (int i = 0; i < t.Length-1; i++)
+//     {
+//         result[i]=Convert.ToInt32(t[i+1]);
+//     }
+//     return result;
+// }
 
-int NumArray(int[]t)// вывод количесват положительных чисел
-{
-    int result=0;
-    for (int i = 0; i < t.Length; i++)
-    {
-        Console.Write($"{t[i]}, ");
-        if (t[i]>0) result++;
-    }
-    return result;
-}
+// int NumArray(int[]t)// вывод количесват положительных чисел
+// {
+//     int result=0;
+//     for (int i = 0; i < t.Length; i++)
+//     {
+//         Console.Write($"{t[i]}, ");
+//         if (t[i]>0) result++;
+//     }
+//     return result;
+// }
 
-int result=NumArray(IntRandom());
-//int result=NumArray(StringInInt(StringRandom()));
-Console.WriteLine("");
-Console.WriteLine($"Количество положительных чисел = {result}");
+// int result=NumArray(IntRandom());
+// //int result=NumArray(StringInInt(StringRandom()));
+// Console.WriteLine("");
+// Console.WriteLine($"Количество положительных чисел = {result}");
 
 
 // Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых,
@@ -480,3 +480,56 @@ Console.WriteLine($"Количество положительных чисел =
 // }
 // float[] res=Intersection(InNumCoordinat());
 // Console.WriteLine(string.Join(",",res));
+//-----------------------------------------------------------------------------------
+// Урок 7. Двумерные массивы
+
+// Задача 47. Задайте двумерный массив размером m×n, 
+//заполненный случайными вещественными числами.
+
+// m = 3, n = 4.
+// 0,5 7 -2 -0,2
+// 1 -3,3 8 -9,9
+// 8 7,8 -7,1 9
+double [,] CreateArray()
+{
+    Console.WriteLine("Введите колличество строк в массиве:");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите количество столбцов в массиве:");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    double [,] array =new  double [rows,columns];
+    return array;
+}
+void GetRandomArray(double[,] array)
+{
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+      for (int j = 0; j < array.GetLength(1); j++)
+       {
+            array[i,j] = Convert.ToDouble(new Random().Next(-100,100)/10.0);
+          Console.Write(array[i,j]+  " ");
+        }
+        Console.WriteLine();
+    }
+}
+GetRandomArray(CreateArray());
+
+
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в
+// двумерном массиве, и возвращает значение этого элемента или же указание, 
+//что такого элемента нет.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 17 -> такого числа в массиве нет
+
+// Задача 52. Задайте двумерный массив из целых чисел.
+// Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
