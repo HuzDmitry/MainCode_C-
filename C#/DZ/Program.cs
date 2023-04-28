@@ -526,6 +526,56 @@
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
 
+// int [,] CreateArray()
+// {
+//     Console.WriteLine("Введите колличество строк в массиве:");
+//     int rows = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Введите количество столбцов в массиве:");
+//     int columns = Convert.ToInt32(Console.ReadLine());
+//     int [,] array =new  int [rows,columns];
+//     return array;
+// }
+// int[,] GetRandomArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//       for (int j = 0; j < array.GetLength(1); j++)
+//        {
+//             array[i,j] =new Random().Next(100);
+//           Console.Write(array[i,j]+  " ");
+//         }
+//         Console.WriteLine();
+//     }
+//     return array;
+// }
+// void SerchNumArray(int[,]array, int x, int y)
+// {
+//      if (x>array.GetLength(0)&&y>array.GetLength(1))
+//             {
+//                Console.WriteLine("Такой нет позиции в таблице."); 
+//             }else
+//             {
+//                 Console.WriteLine($"Значени в таблице по x={x}, y={y}: {array[x-1,y-1]}"); 
+//             }
+    
+// }
+// int[,] result=GetRandomArray(CreateArray());
+
+// Console.WriteLine("Введите строку x:");
+// int x = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите столбец y:");
+// int y = Convert.ToInt32(Console.ReadLine());
+// SerchNumArray(result,x,y);
+
+// Задача 52. Задайте двумерный массив из целых чисел.
+// Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
 int [,] CreateArray()
 {
     Console.WriteLine("Введите колличество строк в массиве:");
@@ -541,37 +591,27 @@ int[,] GetRandomArray(int[,] array)
     {
       for (int j = 0; j < array.GetLength(1); j++)
        {
-            array[i,j] =new Random().Next(100);
+            array[i,j] =new Random().Next(10);
           Console.Write(array[i,j]+  " ");
         }
         Console.WriteLine();
     }
     return array;
 }
-void SerchNumArray(int[,]array, int x, int y)
-{
-     if (x>array.GetLength(0)&&y>array.GetLength(1))
-            {
-               Console.WriteLine("Такой нет позиции в таблице."); 
-            }else
-            {
-                Console.WriteLine($"Значени в таблице по x={x}, y={y}: {array[x-1,y-1]}"); 
-            }
-    
-}
+
 int[,] result=GetRandomArray(CreateArray());
+float[]arifmet=new float[result.GetLength(1)];
 
-Console.WriteLine("Введите строку x:");
-int x = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите столбец y:");
-int y = Convert.ToInt32(Console.ReadLine());
-SerchNumArray(result,x,y);
-
-// Задача 52. Задайте двумерный массив из целых чисел.
-// Найдите среднее арифметическое элементов в каждом столбце.
-
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+for (int i = 0; i < result.GetLength(0); i++)
+    {
+      for (int j = 0; j < result.GetLength(1); j++)
+        {
+            arifmet[j] +=result[i,j];
+        }
+    }
+Console.WriteLine();
+for (int i = 0; i < arifmet.Length; i++)
+{
+    arifmet[i]/=result.GetLength(1);
+    Console.Write($"{Math.Round(arifmet[i],1)}; ");
+}
