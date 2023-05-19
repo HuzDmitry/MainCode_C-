@@ -628,6 +628,84 @@
 // 7 4 2 1
 // 9 5 3 2
 // 8 4 4 2
+// int [,] CreateArray()//создание массива
+// {
+//     Console.WriteLine("Введите колличество строк в массиве:");
+//     int rows = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Введите количество столбцов в массиве:");
+//     int columns = Convert.ToInt32(Console.ReadLine());
+//     int [,] array =new  int [rows,columns];
+//     return array;
+// }
+// int[,] GetRandomArray(int[,] array, int length)// заполнение массива случайными числами
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//       for (int j = 0; j < array.GetLength(1); j++)
+//        {
+//             array[i,j] =new Random().Next(length);
+//         }
+//     }
+//     return array;
+// }
+// void PrintArray(int[,]result)// вывод массива в консоль
+// {
+//     for (int i = 0; i < result.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < result.GetLength(1); j++)
+//         {
+//             Console.Write(result[i,j]);
+//         }
+
+//         Console.WriteLine();
+//     }
+// }
+// void SortArray(int[,] array)
+// {
+    
+//     for(int i=0; i<array.GetLength(0);i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             int count=array[i,j];
+//             int k=j+1;
+//             int temp=0;
+//             while(k<array.GetLength(1))
+//             {
+//                 if (count<array[i,k])
+//                 {
+//                     temp=count;
+//                     count=array[i,k];
+//                     array[i,k]=temp;
+//                 }
+//                 k++;
+//             } 
+//             array[i,j]=count;
+//         }
+//     } 
+// }
+
+// int [,]result=GetRandomArray(CreateArray(), 10);
+// PrintArray(result);
+// SortArray(result);
+// Console.WriteLine();
+// PrintArray(result);
+
+// Задача 56: Задайте прямоугольный двумерный массив. 
+// Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+// Например, задан массив:
+
+// 1 4 7 2
+
+// 5 9 2 3
+
+// 8 4 2 4
+
+// 5 2 6 7
+
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
 int [,] CreateArray()//создание массива
 {
     Console.WriteLine("Введите колличество строк в массиве:");
@@ -660,33 +738,22 @@ void PrintArray(int[,]result)// вывод массива в консоль
         Console.WriteLine();
     }
 }
-void SortArray(int[,] array)
+void MinSumString(int[,] array)
 {
     
-    for(int i=0; i<array.GetLength(0);i++)
+    int[] temp=new int[array.GetLength(0)];
+    for (int i = 0; i < array.GetLength(0); i++)
     {
+        int minSum=0;
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            int count=array[i,j];
-            int k=j+1;
-            int temp=0;
-            while(k<array.GetLength(1))
-            {
-                if (count<array[i,k])
-                {
-                    temp=count;
-                    count=array[i,k];
-                    array[i,k]=temp;
-                }
-                k++;
-            } 
-            array[i,j]=count;
+            minSum+=array[i,j];
         }
-    } 
+        temp[i]=minSum;
+    }
+    int m=temp.Min();
+    Console.WriteLine($"строка с меньшей суммой = {Array.IndexOf(temp, m)+1} ");
 }
-
-int [,]result=GetRandomArray(CreateArray(), 10);
-PrintArray(result);
-SortArray(result);
-Console.WriteLine();
-PrintArray(result);
+int [,] array=GetRandomArray(CreateArray(),10);
+PrintArray(array);
+MinSumString(array);
