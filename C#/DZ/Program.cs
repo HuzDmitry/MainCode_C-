@@ -732,28 +732,70 @@ void PrintArray(int[,]result)// вывод массива в консоль
     {
         for (int j = 0; j < result.GetLength(1); j++)
         {
-            Console.Write(result[i,j]);
+            Console.Write($" {result[i,j]}");
         }
 
         Console.WriteLine();
     }
 }
-void MinSumString(int[,] array)
-{
+// void MinSumString(int[,] array)
+// {
     
-    int[] temp=new int[array.GetLength(0)];
-    for (int i = 0; i < array.GetLength(0); i++)
+//     int[] temp=new int[array.GetLength(0)];
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         int minSum=0;
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             minSum+=array[i,j];
+//         }
+//         temp[i]=minSum;
+//     }
+//     int m=temp.Min();
+//     Console.WriteLine($"строка с меньшей суммой = {Array.IndexOf(temp, m)+1} ");
+// }
+// int [,] array=GetRandomArray(CreateArray(),10);
+// PrintArray(array);
+// MinSumString(array);
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+int[,] multiplacationMatrix(int [,] matrix1, int[,] matrix2)
+{
+    int[,] result=new int[matrix1.GetLength(0), matrix2.GetLength(1)];
+    if (matrix1.GetLength(1) != matrix2.GetLength(0))
     {
-        int minSum=0;
-        for (int j = 0; j < array.GetLength(1); j++)
+        Console.WriteLine("размеры матрицы не подходят для умножения.");
+    }else
+    {
+        for (int i = 0; i < matrix1.GetLength(0); i++)
         {
-            minSum+=array[i,j];
+            for (int j = 0; j < matrix1.GetLength(1); j++)
+            {
+                for (int k = 0; k < matrix2.GetLength(1); k++)
+                {
+                    result[i,k]+=matrix1[i,j] * matrix2[j,k];
+                }
+                
+            }
+            
         }
-        temp[i]=minSum;
     }
-    int m=temp.Min();
-    Console.WriteLine($"строка с меньшей суммой = {Array.IndexOf(temp, m)+1} ");
+    return result;
 }
-int [,] array=GetRandomArray(CreateArray(),10);
-PrintArray(array);
-MinSumString(array);
+
+Console.WriteLine("размер первой матрицы");
+int [,] array1=GetRandomArray(CreateArray(),10);//10- это диапозон случайных чисел
+Console.WriteLine("размер второй матрицы");
+int [,] array2=GetRandomArray(CreateArray(),10);
+PrintArray(array1);
+Console.WriteLine();
+PrintArray(array2);
+Console.WriteLine();
+PrintArray(multiplacationMatrix(array1, array2));
