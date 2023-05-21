@@ -706,38 +706,38 @@
 
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-int [,] CreateArray()//создание массива
-{
-    Console.WriteLine("Введите колличество строк в массиве:");
-    int rows = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите количество столбцов в массиве:");
-    int columns = Convert.ToInt32(Console.ReadLine());
-    int [,] array =new  int [rows,columns];
-    return array;
-}
-int[,] GetRandomArray(int[,] array, int length)// заполнение массива случайными числами
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-      for (int j = 0; j < array.GetLength(1); j++)
-       {
-            array[i,j] =new Random().Next(length);
-        }
-    }
-    return array;
-}
-void PrintArray(int[,]result)// вывод массива в консоль
-{
-    for (int i = 0; i < result.GetLength(0); i++)
-    {
-        for (int j = 0; j < result.GetLength(1); j++)
-        {
-            Console.Write($" {result[i,j]}");
-        }
+// int [,] CreateArray()//создание массива
+// {
+//     Console.WriteLine("Введите колличество строк в массиве:");
+//     int rows = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Введите количество столбцов в массиве:");
+//     int columns = Convert.ToInt32(Console.ReadLine());
+//     int [,] array =new  int [rows,columns];
+//     return array;
+// }
+// int[,] GetRandomArray(int[,] array, int length)// заполнение массива случайными числами
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//       for (int j = 0; j < array.GetLength(1); j++)
+//        {
+//             array[i,j] =new Random().Next(length);
+//         }
+//     }
+//     return array;
+// }
+// void PrintArray(int[,]result)// вывод массива в консоль
+// {
+//     for (int i = 0; i < result.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < result.GetLength(1); j++)
+//         {
+//             Console.Write($" {result[i,j]}");
+//         }
 
-        Console.WriteLine();
-    }
-}
+//         Console.WriteLine();
+//     }
+// }
 // void MinSumString(int[,] array)
 // {
     
@@ -766,36 +766,99 @@ void PrintArray(int[,]result)// вывод массива в консоль
 // 18 20
 // 15 18
 
-int[,] multiplacationMatrix(int [,] matrix1, int[,] matrix2)
-{
-    int[,] result=new int[matrix1.GetLength(0), matrix2.GetLength(1)];
-    if (matrix1.GetLength(1) != matrix2.GetLength(0))
-    {
-        Console.WriteLine("размеры матрицы не подходят для умножения.");
-    }else
-    {
-        for (int i = 0; i < matrix1.GetLength(0); i++)
-        {
-            for (int j = 0; j < matrix1.GetLength(1); j++)
-            {
-                for (int k = 0; k < matrix2.GetLength(1); k++)
-                {
-                    result[i,k]+=matrix1[i,j] * matrix2[j,k];
-                }
+// int[,] multiplacationMatrix(int [,] matrix1, int[,] matrix2)
+// {
+//     int[,] result=new int[matrix1.GetLength(0), matrix2.GetLength(1)];
+//     if (matrix1.GetLength(1) != matrix2.GetLength(0))
+//     {
+//         Console.WriteLine("размеры матрицы не подходят для умножения.");
+//     }else
+//     {
+//         for (int i = 0; i < matrix1.GetLength(0); i++)
+//         {
+//             for (int j = 0; j < matrix1.GetLength(1); j++)
+//             {
+//                 for (int k = 0; k < matrix2.GetLength(1); k++)
+//                 {
+//                     result[i,k]+=matrix1[i,j] * matrix2[j,k];
+//                 }
                 
-            }
+//             }
             
+//         }
+//     }
+//     return result;
+// }
+
+// Console.WriteLine("размер первой матрицы");
+// int [,] array1=GetRandomArray(CreateArray(),10);//10- это диапозон случайных чисел
+// Console.WriteLine("размер второй матрицы");
+// int [,] array2=GetRandomArray(CreateArray(),10);
+// PrintArray(array1);
+// Console.WriteLine();
+// PrintArray(array2);
+// Console.WriteLine();
+// PrintArray(multiplacationMatrix(array1, array2));
+//-------------------------------------------------------------------------------------
+// Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+// Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+
+int [,,] CreateMatrix()//создание массива
+{
+    Console.WriteLine("Введите первую величину в массиве:");
+    int level1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите вторую величину в массиве:");
+    int level2 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите третью величину в массиве:");
+    int level3= Convert.ToInt32(Console.ReadLine());
+    int [,,] array =new  int [level1, level2, level3];
+    return array;
+}
+void GetRandomMatrix(int[,,] matrix)// заполнение массива случайными числами
+{
+    Random rand= new Random();
+    int count= matrix.GetLength(0)*matrix.GetLength(1)*matrix.GetLength(2);
+    HashSet <int> steck=new HashSet<int>();
+
+    while(steck.Count != count)
+    {
+        steck.Add(rand.Next(10,100));
+    }
+   int[] array=steck.ToArray();
+    //Console.Write(String.Join(" ",array));
+    //Console.WriteLine();
+    int value=0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+         for (int j = 0; j < matrix.GetLength(1); j++)
+         {
+            for (int k = 0; k < matrix.GetLength(2); k++)
+            {
+                matrix[i,j,k] =array[value++];
+            }
         }
     }
-    return result;
+}
+void PrintMatrix(int[,,]matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                for (int k = 0; k < matrix.GetLength(2); k++)
+                {
+                    Console.Write($"{matrix[i,j,k]}({i},{j},{k}); ");
+                }
+                Console.WriteLine();
+            }
+        }
 }
 
-Console.WriteLine("размер первой матрицы");
-int [,] array1=GetRandomArray(CreateArray(),10);//10- это диапозон случайных чисел
-Console.WriteLine("размер второй матрицы");
-int [,] array2=GetRandomArray(CreateArray(),10);
-PrintArray(array1);
-Console.WriteLine();
-PrintArray(array2);
-Console.WriteLine();
-PrintArray(multiplacationMatrix(array1, array2));
+int[,,]result=CreateMatrix();
+GetRandomMatrix(result);
+PrintMatrix(result);
