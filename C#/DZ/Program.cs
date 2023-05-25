@@ -808,57 +808,94 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-int [,,] CreateMatrix()//создание массива
-{
-    Console.WriteLine("Введите первую величину в массиве:");
-    int level1 = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите вторую величину в массиве:");
-    int level2 = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите третью величину в массиве:");
-    int level3= Convert.ToInt32(Console.ReadLine());
-    int [,,] array =new  int [level1, level2, level3];
-    return array;
-}
-void GetRandomMatrix(int[,,] matrix)// заполнение массива случайными числами
-{
-    Random rand= new Random();
-    int count= matrix.GetLength(0)*matrix.GetLength(1)*matrix.GetLength(2);
-    HashSet <int> steck=new HashSet<int>();
+// int [,,] CreateMatrix()//создание массива
+// {
+//     Console.WriteLine("Введите первую величину в массиве:");
+//     int level1 = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Введите вторую величину в массиве:");
+//     int level2 = Convert.ToInt32(Console.ReadLine());
+//     Console.WriteLine("Введите третью величину в массиве:");
+//     int level3= Convert.ToInt32(Console.ReadLine());
+//     int [,,] array =new  int [level1, level2, level3];
+//     return array;
+// }
+// void GetRandomMatrix(int[,,] matrix)// заполнение массива случайными числами
+// {
+//     Random rand= new Random();
+//     int count= matrix.GetLength(0)*matrix.GetLength(1)*matrix.GetLength(2);
+//     HashSet <int> steck=new HashSet<int>();
 
-    while(steck.Count != count)
-    {
-        steck.Add(rand.Next(10,100));
-    }
-   int[] array=steck.ToArray();
-    //Console.Write(String.Join(" ",array));
-    //Console.WriteLine();
-    int value=0;
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-         for (int j = 0; j < matrix.GetLength(1); j++)
-         {
-            for (int k = 0; k < matrix.GetLength(2); k++)
-            {
-                matrix[i,j,k] =array[value++];
-            }
-        }
-    }
-}
-void PrintMatrix(int[,,]matrix)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-            for (int j = 0; j < matrix.GetLength(1); j++)
-            {
-                for (int k = 0; k < matrix.GetLength(2); k++)
-                {
-                    Console.Write($"{matrix[i,j,k]}({i},{j},{k}); ");
-                }
-                Console.WriteLine();
-            }
-        }
-}
+//     while(steck.Count != count)
+//     {
+//         steck.Add(rand.Next(10,100));
+//     }
+//    int[] array=steck.ToArray();
+//     //Console.Write(String.Join(" ",array));
+//     //Console.WriteLine();
+//     int value=0;
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//          for (int j = 0; j < matrix.GetLength(1); j++)
+//          {
+//             for (int k = 0; k < matrix.GetLength(2); k++)
+//             {
+//                 matrix[i,j,k] =array[value++];
+//             }
+//         }
+//     }
+// }
+// void PrintMatrix(int[,,]matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//         {
+//             for (int j = 0; j < matrix.GetLength(1); j++)
+//             {
+//                 for (int k = 0; k < matrix.GetLength(2); k++)
+//                 {
+//                     Console.Write($"{matrix[i,j,k]}({i},{j},{k}); ");
+//                 }
+//                 Console.WriteLine();
+//             }
+//         }
+// }
 
-int[,,]result=CreateMatrix();
-GetRandomMatrix(result);
-PrintMatrix(result);
+// int[,,]result=CreateMatrix();
+// GetRandomMatrix(result);
+// PrintMatrix(result);
+
+//--------------------------------------------------------------------------------------------
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
+
+//-----------------------------------------------------------------------------------
+// Задача 66: Задайте значения M и N. Напишите программу,
+// которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
+
+int a = ReadInt("Введите число M: ");
+int b = ReadInt("Введите число N: ");
+if(a<b)
+    System.Console.WriteLine(summ(a,b));
+else
+    System.Console.WriteLine(summ(b,a));
+
+
+int ReadInt(string text)
+{
+    System.Console.WriteLine(text);
+    return Convert.ToInt32(Console.ReadLine());
+}
+int summ(int m, int n)
+{
+    if(m==n) return m;
+    else
+    {
+        return n+ summ(m,n-1);
+    }
+}
